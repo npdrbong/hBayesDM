@@ -232,6 +232,86 @@ bart_preprocess_func <- function(raw_data, general_info) {
   return(data_list)
 }
 
+oms_preprocess_func <- function(raw_data, general_info) {
+  # Currently class(raw_data) == "data.table"
+
+  # Use general_info of raw_data
+  subjs   <- general_info$subjs
+  n_subj  <- general_info$n_subj
+  t_subjs <- general_info$t_subjs
+  t_max   <- general_info$t_max
+
+  # Initialize (model-specific) data arrays
+  pumps     <- array(0, c(n_subj, t_max))
+  explosion <- array(0, c(n_subj, t_max))
+  oms       <- array(0, c(n_subj, t_max))
+
+  # Write from raw_data to the data arrays
+  for (i in 1:n_subj) {
+    subj <- subjs[i]
+    t <- t_subjs[i]
+    DT_subj <- raw_data[raw_data$subjid == subj]
+
+    pumps[i, 1:t]     <- DT_subj$pumps
+    explosion[i, 1:t] <- DT_subj$explosion
+    oms[i, 1:t]       <- DT_subj$oms
+  }
+
+  # Wrap into a list for Stan
+  data_list <- list(
+    N         = n_subj,
+    T         = t_max,
+    Tsubj     = t_subjs,
+    P         = max(pumps) + 1,
+    pumps     = pumps,
+    explosion = explosion,
+    oms       = oms
+  )
+
+  # Returned data_list will directly be passed to Stan
+  return(data_list)
+}
+
+omsfree_preprocess_func <- function(raw_data, general_info) {
+  # Currently class(raw_data) == "data.table"
+
+  # Use general_info of raw_data
+  subjs   <- general_info$subjs
+  n_subj  <- general_info$n_subj
+  t_subjs <- general_info$t_subjs
+  t_max   <- general_info$t_max
+
+  # Initialize (model-specific) data arrays
+  pumps     <- array(0, c(n_subj, t_max))
+  explosion <- array(0, c(n_subj, t_max))
+  oms       <- array(0, c(n_subj, t_max))
+
+  # Write from raw_data to the data arrays
+  for (i in 1:n_subj) {
+    subj <- subjs[i]
+    t <- t_subjs[i]
+    DT_subj <- raw_data[raw_data$subjid == subj]
+
+    pumps[i, 1:t]     <- DT_subj$pumps
+    explosion[i, 1:t] <- DT_subj$explosion
+    oms[i, 1:t]       <- DT_subj$oms
+  }
+
+  # Wrap into a list for Stan
+  data_list <- list(
+    N         = n_subj,
+    T         = t_max,
+    Tsubj     = t_subjs,
+    P         = max(pumps) + 1,
+    pumps     = pumps,
+    explosion = explosion,
+    oms       = oms
+  )
+
+  # Returned data_list will directly be passed to Stan
+  return(data_list)
+}
+
 choiceRT_preprocess_func <- function(raw_data, general_info, RTbound = 0.1) {
   # Use raw_data as a data.frame
   raw_data <- as.data.frame(raw_data)

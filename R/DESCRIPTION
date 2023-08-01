@@ -44,7 +44,7 @@ BugReports: https://github.com/CCS-Lab/hBayesDM/issues
 License: GPL-3
 NeedsCompilation: yes
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.2
 SystemRequirements: GNU make
 Collate:
     'HDIofMCMC.R'
@@ -68,8 +68,13 @@ Collate:
     'banditNarm_lapse.R'
     'banditNarm_lapse_decay.R'
     'banditNarm_singleA_lapse.R'
+    'bart_5bias.R'
+    'bart_bias.R'
     'bart_ewmv.R'
     'bart_par4.R'
+    'bart_policy.R'
+    'bart_rl.R'
+    'bart_target.R'
     'cgt_cm.R'
     'choiceRT_ddm.R'
     'choiceRT_ddm_single.R'
@@ -95,6 +100,13 @@ Collate:
     'igt_pvl_delta.R'
     'igt_vpp.R'
     'multiplot.R'
+    'oms_5bias.R'
+    'oms_bias.R'
+    'oms_ewmv.R'
+    'oms_par4.R'
+    'omsfree_5bias.R'
+    'omsfree_ewmv.R'
+    'omsfree_par4.R'
     'peer_ocu.R'
     'plot.hBayesDM.R'
     'plotDist.R'

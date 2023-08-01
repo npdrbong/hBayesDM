@@ -1,0 +1,35 @@
+task_name:
+  code: bart
+  desc: Balloon Analogue Risk Task
+  cite:
+model_name:
+  code: bias
+  desc: Bayesian updating of risk rewritten with 'Bias' term
+  cite:
+  - 'Kim, M., Kim, S., Lee, K. U., & Jeong, B. (2020). Pessimistically biased 
+    perception in panic disorder during risk learning. Depression and anxiety, 
+    37(7), 609-619.'
+model_type:
+  code:
+  desc: Hierarchical
+data_columns:
+  subjID: A unique identifier for each subject in the data-set.
+  pumps: The number of pumps.
+  explosion: '0: intact, 1: burst'
+parameters:
+  phi:
+    desc: prior belief of balloon not bursting
+    info: [0, 0.5, 1]
+  tau:
+    desc: inverse temperature
+    info: [0, 1, Inf]
+  alpha:
+    desc: Learning Bias
+    info: [0, 0.5, 1] 
+  beta:
+    desc: Perceptual Bias
+    info: [0, 0.5, 1]
+regressors:
+postpreds:
+- y_pred
+additional_args:

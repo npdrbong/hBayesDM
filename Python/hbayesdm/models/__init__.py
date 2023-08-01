@@ -14,8 +14,13 @@ from ._banditNarm_kalman_filter import banditNarm_kalman_filter
 from ._banditNarm_lapse import banditNarm_lapse
 from ._banditNarm_lapse_decay import banditNarm_lapse_decay
 from ._banditNarm_singleA_lapse import banditNarm_singleA_lapse
+from ._bart_5bias import bart_5bias
+from ._bart_bias import bart_bias
 from ._bart_ewmv import bart_ewmv
 from ._bart_par4 import bart_par4
+from ._bart_policy import bart_policy
+from ._bart_rl import bart_rl
+from ._bart_target import bart_target
 from ._cgt_cm import cgt_cm
 from ._choiceRT_ddm import choiceRT_ddm
 from ._choiceRT_ddm_single import choiceRT_ddm_single
@@ -35,6 +40,13 @@ from ._igt_orl import igt_orl
 from ._igt_pvl_decay import igt_pvl_decay
 from ._igt_pvl_delta import igt_pvl_delta
 from ._igt_vpp import igt_vpp
+from ._oms_5bias import oms_5bias
+from ._oms_bias import oms_bias
+from ._oms_ewmv import oms_ewmv
+from ._oms_par4 import oms_par4
+from ._omsfree_5bias import omsfree_5bias
+from ._omsfree_ewmv import omsfree_ewmv
+from ._omsfree_par4 import omsfree_par4
 from ._peer_ocu import peer_ocu
 from ._prl_ewa import prl_ewa
 from ._prl_fictitious import prl_fictitious
@@ -78,8 +90,13 @@ __all__ = [
     'banditNarm_lapse',
     'banditNarm_lapse_decay',
     'banditNarm_singleA_lapse',
+    'bart_5bias',
+    'bart_bias',
     'bart_ewmv',
     'bart_par4',
+    'bart_policy',
+    'bart_rl',
+    'bart_target',
     'cgt_cm',
     'choiceRT_ddm',
     'choiceRT_ddm_single',
@@ -99,6 +116,13 @@ __all__ = [
     'igt_pvl_decay',
     'igt_pvl_delta',
     'igt_vpp',
+    'oms_5bias',
+    'oms_bias',
+    'oms_ewmv',
+    'oms_par4',
+    'omsfree_5bias',
+    'omsfree_ewmv',
+    'omsfree_par4',
     'peer_ocu',
     'prl_ewa',
     'prl_fictitious',

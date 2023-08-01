@@ -1,0 +1,42 @@
+task_name:
+  code: omsfree
+  desc: Balloon Analogue Risk Task, one more step version, and with free parameter
+  cite:
+model_name:
+  code: 5bias
+  desc: one more step version. Bayesian updating of risk rewritten with 'Bias' term, with 'gam'
+  cite:
+  - 'Kim, M., Kim, S., Lee, K. U., & Jeong, B. (2020). Pessimistically biased 
+    perception in panic disorder during risk learning. Depression and anxiety, 
+    37(7), 609-619.'
+model_type:
+  code:
+  desc: Hierarchical
+data_columns:
+  subjID: A unique identifier for each subject in the data-set.
+  pumps: The number of pumps.
+  explosion: '0: intact, 1: burst'
+  oms: '0: intact, 1: burst'
+parameters:
+  phi:
+    desc: prior belief of balloon not bursting
+    info: [0, 0.5, 1]
+  tau:
+    desc: inverse temperature
+    info: [0, 1, Inf]
+  gam:
+    desc: risk-taking parameter
+    info: [0, 1, Inf]
+  alpha:
+    desc: Learning Bias
+    info: [0, 0.5, 1] 
+  beta:
+    desc: Perceptual Bias
+    info: [0, 0.5, 1]
+  epsi:
+    desc: free parameter for 'one more step'
+    info: [0, 0.5, 1]
+regressors:
+postpreds:
+- y_pred
+additional_args:

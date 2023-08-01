@@ -1,0 +1,37 @@
+task_name:
+  code: bart
+  desc: Balloon Analogue Risk Task
+  cite:
+model_name:
+  code: target
+  desc: reinforcement learning from target model
+  cite:
+  - 'van Ravenzwaaij, D., Dutilh, G., & Wagenmakers, E. J. (2011). Cognitive model
+    decomposition of the BART: Assessment and application. Journal of Mathematical
+    Psychology, 55(1), 94-105.'
+model_type:
+  code:
+  desc: Hierarchical
+notes:
+contributors:
+data_columns:
+  subjID: A unique identifier for each subject in the data-set.
+  pumps: The number of pumps.
+  explosion: '0: intact, 1: burst'
+parameters:
+  phi:
+    desc: parameter for initial target number
+    info: [0, 10, Inf]
+  tau:
+    desc: inverse temperature
+    info: [0, 1, Inf]
+  vwin:  
+    desc: learning rate of reward
+    info: [0, 0.5, 1]
+  vloss:  
+    desc: learning rate of loss
+    info: [0, 0.5, 1]
+regressors:
+postpreds:
+- y_pred
+additional_args:
